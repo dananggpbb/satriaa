@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Peminjaman Barang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="kotakatas">
+                <a href="https://www.gramedia.com/" class="logo">Inventaris Barang Jurusan</a>
+
+            <ul class="menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="daftar_barang.html">Daftar Barang</a></li>
+            <li><a href="form_peminjaman.html">Formulir Peminjaman</a></li>
+            <li><a href="kritik_saran.html">Kritik & Saran</a></li>
+
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-4">
+        <h2 class="text-center">Isi Formulir Peminjaman</h2>
+        <form id="peminjamanForm" class="row g-3 mt-3">
+            <div class="col-md-12">
+                <label for="namaPeminjam" class="form-label">Nama Peminjam</label>
+                <input type="text" class="form-control" id="namaPeminjam" placeholder="Masukkan Nama Anda" required>
+            </div>
+            <div class="col-md-12">
+                <label for="alamat" class="form-label">Alamat</label>
+                <input type="text" class="form-control" id="alamat" placeholder="Masukkan Alamat Anda" required>
+            </div>
+            <div class="col-md-12">
+                <label for="namaPetugas" class="form-label">Nama Petugas</label>
+                <input type="text" class="form-control" id="namaPetugas" placeholder="Masukkan Nama Petugas" required>
+            </div>
+            <div class="col-md-12">
+                <label for="kelasPeminjam" class="form-label">Kelas</label>
+                <input type="text" class="form-control" id="kelasPeminjam" placeholder="Masukkan Kelas Anda" required>
+            </div>
+            <div class="col-md-12">
+                <label for="barangDipinjam" class="form-label">Nama Barang</label>
+                <input type="text" class="form-control" id="barangDipinjam" placeholder="Barang Yang Akan Dipinjam" required>
+            </div>
+            <div class="col-md-12">
+                <label for="jumlahBarang" class="form-label">Jumlah Barang</label>
+                <input type="number" class="form-control" id="jumlahBarang" placeholder="Jumlah Barang" required>
+            </div>
+            <div class="col-md-12">
+                <label for="jamPeminjaman" class="form-label">Jam Peminjaman</label>
+                <input type="time" class="form-control" id="jamPeminjaman" required>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary">Ajukan Peminjaman</button>
+            </div>
+        </form>
+        <h3 class="text-center mt-5" style="font-weight:bold">Daftar Peminjaman</h3>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Peminjam</th>
+                    <th>Alamat</th>
+                    <th>Nama Petugas</th>
+                    <th>Kelas</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah Barang</th>
+                    <th>Jam</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="peminjamanTable"></tbody>
+            
+        </table>
+    </main>
+    
+    <script src="../script.js"></script>
+</body>
+</html>

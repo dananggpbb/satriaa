@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Barang Inventaris</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="kotakatas">
+                <a href="https://www.gramedia.com/" class="logo">Inventaris Barang Jurusan</a>
+
+            <ul class="menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="daftar_barang.html">Daftar Barang</a></li>
+            <li><a href="form_peminjaman.html">Formulir Peminjaman</a></li>
+            <li><a href="kritik_saran.html">Kritik & Saran</a></li>
+
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-4">
+        <h2 class="text-center">Inventaris Barang Jurusan</h2>
+    
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Gambar</th>
+                    <th>Ketersediaan Stok</th>
+                    <th>Deskripsi</th>
+                </tr>
+            </thead>
+            <tbody id="barangTable">
+            </tbody>
+        </table>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const barangTable = document.getElementById("barangTable");
+    const gambarContainer = document.getElementById("gambarContainer");
+
+    // Data barang
+    const barangData = [
+        {
+            nama: "Laptop",
+            gambar: "../asset/image/laptop.png",
+            stok: 9,
+            deskripsi: "Laptop jurusan untuk presentasi dan tugas."
+        },
+        {
+            nama: "Proyektor",
+            gambar: "../asset/image/proyektor.png", 
+            stok: 5,
+            deskripsi: "Proyektor untuk kegiatan belajar mengajar."
+        },
+        {
+            nama: "Kabel Roll",
+            gambar: "../asset/image/kabelroll.png", 
+            stok: 22,
+            deskripsi: "Kabel Roll untuk tempat charge."
+        },
+        {
+            nama: "Mouse",
+            gambar: "../asset/image/mouse.png", 
+            stok: 15,
+            deskripsi: "Mouse untuk memudahkan crosshair di laptop"
+        },
+        {
+            nama: "Keyboard",
+            gambar: "../asset/image/keyboard.png", 
+            stok: 11,
+            deskripsi: "Keyboard untuk mengetik"
+        }
+    ];
+
+    // Fungsi untuk menampilkan data barang di tabel
+    function renderBarang() {
+        barangTable.innerHTML = ""; 
+        barangData.forEach((item, index) => {
+            const row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${item.nama}</td>
+                    <td><img src="${item.gambar}" alt="${item.nama}" class="img-thumbnail"></td>
+                    <td>${item.stok > 0 ? item.stok : "<span class='text-danger'>Habis</span>"}</td>
+                    <td>${item.deskripsi}</td>
+                </tr>
+            `;
+            barangTable.innerHTML += row;
+        });
+    }
+
+    // Fungsi untuk menampilkan gambar di galeri
+    function renderGambar() {
+        gambarContainer.innerHTML = ""; 
+        barangData.forEach((item) => {
+            const imgElement = `
+                <div class="col-md-3 text-center">
+                    <img src="${item.gambar}" alt="${item.nama}" class="img-fluid">
+                    <p class="mt-2">${item.nama}</p>
+                </div>
+            `;
+            gambarContainer.innerHTML += imgElement;
+        });
+    }
+
+    // Render data saat halaman dimuat
+    renderBarang();
+    renderGambar();
+});
+
+    </script>
+</body>
+</html>

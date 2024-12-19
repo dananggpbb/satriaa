@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struk Inventaris Barang</title>
+  <link rel="stylesheet" href="struk.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link+
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+</head>
+<body>
+  <div class="struk-container">
+    <h1>Struk Form Peminjaman</h1>
+    <table id="strukTable"></table>
+    <div class="buttons">
+      <button class="btn" onclick="goToHome()">Kembali ke Halaman Utama</button>
+      <button class="btn" onclick="printPage()">Cetak Struk</button>
+    </div>
+    <div class="footer">
+      <p>Terima kasih meminjam barang inventaris!</p>
+    </div>
+  </div>
+
+  <script>
+    
+    const data = JSON.parse(localStorage.getItem('strukData'));
+
+    
+    if (data) {
+  const strukTable = document.getElementById('strukTable');
+  strukTable.innerHTML = `
+    <tr><td>Nama Peminjam</td><td>: ${data.namaPeminjam}</td></tr>
+    <tr><td>Alamat</td><td>: ${data.alamat}</td></tr>
+    <tr><td>Nama Petugas</td><td>: ${data.namaPetugas}</td></tr>
+    <tr><td>Kelas Peminjam</td><td>: ${data.kelas}</td></tr>
+    <tr><td>Barang</td><td>: ${data.barang}</td></tr>
+    <tr><td>Jumlah Barang</td><td>: ${data.jumlahBarang}</td></tr>
+    <tr><td>Jam</td><td>: ${data.jam}</td></tr>
+  `;
+} else {
+  document.body.innerHTML = '<h1>Data tidak tersedia</h1>';
+}
+
+    
+    function goToHome() {
+      window.location.href = '../index.html'; 
+    }
+
+
+    function printPage() {
+      window.print();
+    }
+
+  
+  document.addEventListener('keydown', function(event) {
+   
+    if (event.ctrlKey && event.key === 'p') {
+      event.preventDefault(); 
+      window.print();
+    }
+  });
+</script>
+
+  </script>
+</body>
+</html>
